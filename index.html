@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Video Player</title>
+  <link rel="stylesheet" href="mediaPlayer.css" />
+</head>
+<body>
+    <div class="page-wrapper">
+
+  <!-- Upload input -->
+  <div class="upload-container">
+    <label for="videoUpload">Upload Video:</label>
+    <input type="file" id="videoUpload" accept="video/*" />
+  </div>
+
+      <div class="video-area">
+
+  <div class="video-container" id="videoContainer">
+    <video 
+      class="video-player" 
+      id="videoPlayer"
+      preload="metadata"
+      poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23000'/%3E%3Ctext x='400' y='225' text-anchor='middle' fill='%23fff' font-size='24' font-family='Arial'%3ECustom Video Player%3C/text%3E%3C/svg%3E"
+    >
+      <source id="videoSource" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Loading Spinner -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      Loading...
+    </div>
+
+    <!-- Controls -->
+    <div class="controls" id="controls">
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar">
+          <div class="buffer-bar" id="bufferBar"></div>
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
+
+      <div class="controls-row">
+        <div class="controls-left">
+          <button class="control-btn play-btn" id="playBtn">▶️</button>
+          <button class="control-btn" id="skipBackBtn">⏪</button>
+          <button class="control-btn" id="skipForwardBtn">⏩</button>
+          <div class="volume-container">
+            <button class="control-btn" id="muteBtn">🔊</button>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1" />
+          </div>
+        </div>
+
+        <div class="time-display" id="timeDisplay">00:00 / 00:00</div>
+
+        <div class="controls-right">
+          <div class="speed-container">
+            <button class="control-btn speed-btn" id="speedBtn">1x</button>
+            <div class="speed-menu" id="speedMenu">
+              <div class="speed-option" data-speed="0.5">0.5x</div>
+              <div class="speed-option" data-speed="0.75">0.75x</div>
+              <div class="speed-option active" data-speed="1">1x</div>
+              <div class="speed-option" data-speed="1.25">1.25x</div>
+              <div class="speed-option" data-speed="1.5">1.5x</div>
+              <div class="speed-option" data-speed="2">2x</div>
+            </div>
+          </div>
+          <button class="control-btn" id="fullscreenBtn">⛶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+  <script src="mediaPlayer.js"></script>
+</body>
+</html>
